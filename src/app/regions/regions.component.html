@@ -1,0 +1,41 @@
+<div class="toolbar" role="banner">
+    <div class="spacer">
+        <span>Welcome</span>
+    </div>
+</div>
+<p>regions works!</p>
+<div class="content" role="main">
+    <form [formGroup]="regionForm">
+        <div class="group-gap">
+            <div class="d-block my-3">
+                <label>Select a Region</label>
+                <div class="mb-3">
+                    <select class="custom-select" formControlName="region" (change)="handleRegion($event.target.value)">
+                        <option class="custom-select" *ngFor="let region of regions" [value]="region"> {{region}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="group-gap" *ngIf="selectedRegion">
+            <div class="d-block my-3">
+                <label>Select a Country</label>
+                <div class="mb-3">
+                    <select class="custom-select" formControlName="country"
+                        (change)="handleCountry($event.target.value)">
+                        <option class="custom-select" *ngFor="let country of countries" [value]="country"> {{country}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="group-gap" *ngIf="selectedCountry">
+            <div class="d-block my-3">
+                <label>Country Details</label>
+                <div class="mb-3">
+                    <app-country-details [country]="selectedCountryDetails"></app-country-details>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

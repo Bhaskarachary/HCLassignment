@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Regions';
+  regions = ['Asia', 'Europe'];
+  selectedRegion: string;
+
+  handleChange(item: string) {
+    this.selectedRegion = item;
+  }
 }
